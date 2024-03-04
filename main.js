@@ -116,7 +116,7 @@ function performGacha() {
                 'Mohon dukungannya selalu untuk JKT48.<br><br>'+
                 'JKT48 Operation Team') + `<br><br><pre>Apply ke-${applyCount}<br>Teori: Apply jam ${jam} ${(isWin) ? `detil` : 'kalah'} wots!</pre>`,
             customClass: { content: 'text-align-left' },
-            imageUrl: isWin ? "/Assets/menang.gif" : "/Assets/kalah.gif",
+            imageUrl: isWin ? "./Assets/menang.gif" : "./Assets/kalah.gif",
             imageWidth: 200,
             confirmButtonText: "OK"
         });
