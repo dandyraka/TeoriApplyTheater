@@ -1,21 +1,23 @@
 const setlistArray = [
+    //Setlist aktif
     "Pajama Drive",
     "Aturan Anti Cinta",
-    "Matahari Milikku",
-    "Demi Seseorang",
-    "Gadis Gadis Remaja",
+    "Banzai JKT48",
+    "Tunas di Balik Seragam",
+    "Cara Meminum Ramune",
+    "Ingin Bertemu",
+
+    /*"Gadis Gadis Remaja",
     "Sambil Menggandeng Erat Tanganku",
     "Dewi Theater",
     "Bel Terakhir Berbunyi",
     "Saka Agari",
     "Sekarang Sedang Jatuh Cinta",
     "Fajar Sang Idola",
-    "Tunas di Balik Seragam",
-    "Cara Meminum Ramune",
-    "Ingin Bertemu",
-    "Banzai JKT48",
+    "Demi Seseorang",
     "Romansa Sang Gadis",
     "Himawari Gumi",
+    "Matahari Milikku",*/
 ];
 
 let setlisto = "Aturan Anti Cinta";
