@@ -73,9 +73,14 @@ function performGacha() {
     showLoading();
     showLoadingAnim()
     const randomNumber = Math.random();
-    const winProbability = 0.3;
+    const winProbability = 0.2;
     const isWin = randomNumber < winProbability;
     const setlistName = setlisto;
+    const jam = $("#waktu").val();
+    let applyCount = parseInt(localStorage.getItem('applyCount')) || 0;
+
+    applyCount += 1;
+    localStorage.setItem('applyCount', applyCount.toString());
 
     const intervalId = setInterval(function () {
         const shuffleArray = (array) => {
@@ -95,20 +100,25 @@ function performGacha() {
     setTimeout(function() {
         clearInterval(intervalId);
         hideLoading();
-        hideLoadingAnim()
+        hideLoadingAnim();
+
+        if (isWin) {
+            localStorage.setItem('applyCount', '0');
+        }
+
         Swal.fire({
             html: '<b>[Teater JKT48] E-mail Pengumuman Hasil Undian Tiket</b><br><br>Terima kasih telah menggunakan website resmi JKT48.<br>' + (isWin ?
                 `Selamat, kamu sudah memenangkan undian tiket pertunjukan ${setlistName}.<br>Pada hari pertunjukan, mohon perlihatkan barcode dari halaman My Page pada layar smartphone kepada staf resepsionis.` :
                 'Proses pengundian untuk tiket pertunjukan telah selesai.<br>Mohon maaf anda tidak mendapatkan tiket untuk pertunjukan:<br><br>▼Show<br>'+
                 `${setlistName}<br><br>`+
                 'Mohon dukungannya selalu untuk JKT48.<br><br>'+
-                'JKT48 Operation Team'),
+                'JKT48 Operation Team') + `<br><br><pre>Apply ke-${applyCount}<br>Teori: Apply jam ${jam} ${(isWin) ? `detil` : 'kalah'} wots!</pre>`,
             customClass: { content: 'text-align-left' },
-            imageUrl: isWin ? "https://media1.tenor.com/m/96fupJYkv9wAAAAC/jkt48-callie.gif" : "https://media1.tenor.com/m/UKMyCgyiA1EAAAAC/callie-callista.gif",
+            imageUrl: isWin ? "/Assets/menang.gif" : "/Assets/kalah.gif",
             imageWidth: 200,
             confirmButtonText: "OK"
         });
-    }, 5000);
+    }, 3000);
 }
 
 function updateResultText(resultText) {
